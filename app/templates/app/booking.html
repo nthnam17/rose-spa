@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HerbalCare - Booking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .booking-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%; /* Expand to 80% of the screen width */
+            max-width: 1200px; /* Limit the max width for large screens */
+            padding: 40px;
+            margin: 20px auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .header-logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #f79f24;
+        }
+        .hotline {
+            color: #333;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        .booking-title {
+            font-size: 24px;
+            color: #f79f24;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            color: #f79f24;
+            margin: 20px 0 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .branch-selection, .service-selection, .time-selection {
+            margin-bottom: 30px;
+        }
+        .branch-selection select,
+        .time-selection input[type="date"],
+        .notes {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .service-selection label {
+            display: block;
+            font-size: 16px;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+        .service-selection input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+        }
+        .time-slot {
+            text-align: center;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 16px;
+        }
+        .time-slot:hover {
+            background-color: #f79f24;
+            color: white;
+        }
+        .time-slot.selected {
+            background-color: #f79f24;
+            color: white;
+        }
+        .notes {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .submit-button {
+            background-color: #f79f24;
+            color: white;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #f79f24;
+        }
+    </style>
+</head>
+<body>
+
+<div class="booking-container">
+    <div class="header">
+        <div class="header-logo">HerbalCare</div>
+        <div class="hotline">Hotline: 1900.228.386</div>
+    </div>
+    
+    <div class="booking-title">Đặt lịch 3 bước</div>
+
+    <form>
+        <div class="branch-selection">
+            <div class="section-title">1. Chọn chi nhánh</div>
+            <select required>
+                <option selected>123 Nguyễn Trãi, Hà Nội</option>
+                <option selected>234 Nam Từ Liêm, Hà Nội</option>
+            </select>
+        </div>
+
+        <div class="service-selection">
+            <div class="section-title">2. Chọn dịch vụ</div>
+            <label><input type="checkbox" checked> Liệu trình triệt lông full body</label>
+            <label><input type="checkbox"> Combo massage full body</label>
+            <label><input type="checkbox"> Liệu trình điều trị mụn - cấy trắng da mặt </label>
+            <button type="button" style="background-color: #eee; color: #ffc506; border: none; margin-top: 15px; cursor: pointer; padding: 10px 20px; border-radius: 5px; font-size: 16px;">+ Thêm dịch vụ</button>
+        </div>
+
+        <div class="time-selection">
+            <div class="section-title">3. Chọn thời gian</div>
+            <input type="date" value="2024-11-14" required>
+            <div class="time-slots">
+                <div class="time-slot">9:00</div>
+                <div class="time-slot">9:30</div>
+                <div class="time-slot">10:00</div>
+                <div class="time-slot">10:30</div>
+                <div class="time-slot">11:00</div>
+                <div class="time-slot">11:30</div>
+                <div class="time-slot">14:00</div>
+                <div class="time-slot">14:30</div>
+                <div class="time-slot">15:00</div>
+                <div class="time-slot">15:30</div>
+                <div class="time-slot">16:00</div>
+                <div class="time-slot">16:30</div>
+                <div class="time-slot">17:00</div>
+                <div class="time-slot">17:30</div>
+                <div class="time-slot">18:00</div>
+                <div class="time-slot">18:30</div>
+            </div>
+        </div>
+
+        <textarea class="notes" placeholder="Ghi chú"></textarea>
+        
+        <button type="submit" class="submit-button">Đặt lịch</button>
+    </form>
+</div>
+
+<script>
+    document.querySelectorAll('.time-slot').forEach(slot => {
+        slot.addEventListener('click', function() {
+            document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+</script>
+
+</body>
+</html>
