@@ -1,0 +1,7 @@
+<h1>Danh sách Đặt Lịch</h1>
+<a href="{% url 'appointment_create' %}">Tạo Lịch mới</a>
+<ul>
+    {% for appointment in appointments %}
+    <li>{{ appointment.title }} - {{ appointment.start_time }}</li>
+    {% endfor %}
+</ul>
